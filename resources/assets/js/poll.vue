@@ -57,7 +57,7 @@
 <style type="text/css">
 
 	.poll-panel{
-		text-align:left;
+		text-align:right;
 	}
 	.poll-questions {
 	  width: 100%;
@@ -84,11 +84,11 @@
 	}
 
 	.poll-question{
-    	float: left;
+    	float: right;
 	}
 	.panel-title{
 		border-bottom: 1px solid #f1f1f1;
-	    padding-left:20px;
+	    padding-right:20px;
 	}
 
 	.answer_result{
@@ -109,11 +109,11 @@
 
 	.answer_result .poll-percentage-bar{
 		width:92%;
-		float:left;
+		float:right;
 		height:20px;
 		border:1px solid #ccc;
 		position:relative;
-		left:0px;
+		right:0px;
 	}
 
 	.answer_result .poll-percentage-bar span{
@@ -155,13 +155,13 @@
 	}
 
 	.poll_num{
-		float:left;
+		float:right;
 	}
 
 	.poll_num p{
 		line-height: 45px;
 	    margin-bottom: 0px;
-	    margin-left: 10px;
+	    margin-right: 10px;
 	    font-size:11px;
 	    font-weight: 400;
 	    text-transform: uppercase;
@@ -180,7 +180,7 @@
 	}
 
 	.radio{
-		margin-left: 15px;
+		margin-right: 15px;
     	margin-top: 20px;
 	}
 
@@ -222,7 +222,7 @@
 	    background: rgba(255, 255, 255, 0.7);
 	    width: 100%;
 	    height: 100%;
-	    left: 0px;
+		right: 0px;
 	    top: 0px;
 	}
 
@@ -241,8 +241,8 @@
 	    color: #ccc;
 	    width: 32px;
 	    height: 32px;
-	    left:50%;
-	    margin-left:-16px;
+		right:50%;
+	    margin-right:-16px;
 	    top:50%;
 	    margin-top:-16px;
 	    position:absolute;
@@ -344,7 +344,7 @@
 				scrolled: 0,
 				current_index: 1,
 				questionsInnerStyles: {
-					marginLeft: '0%', 
+					marginRight: '0%',
 					width: '100%'
 				},
 				inner_offset: 0,
@@ -368,7 +368,7 @@
 				}
 			},
 			computeQuestionsInner: function(){
-				this.questionsInnerStyles.marginLeft = this.inner_offset + '%';
+				this.questionsInnerStyles.marginRight = this.inner_offset + '%';
 				this.questionsInnerStyles.width = (100*this.poll.questions.length) + '%';
 			},
 			vote: function(answer, question){
@@ -471,3 +471,4 @@
 
 	}
 </script>
+
