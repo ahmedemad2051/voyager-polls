@@ -52,7 +52,7 @@
 		<div id="polls">
 			<div class="container-fluid">
 				<div class="col-md-12">
-					<a href="{{ url(env('ROUTE_PREFIX') . '/admin/polls') }}" class="polls-back"><i class="voyager-angle-left"></i> Back to all Polls</a>
+					<a href="{{ url(env('ROUTE_PREFIX') . '/admin/polls') }}" class="polls-back"><i class="voyager-angle-left"></i> {{ __('voyager.Back to all Polls') }}</a>
 				</div>
 				<div class="col-md-6">
 					<poll slug="{{ $poll->slug }}" prefix="{{ env('ROUTE_PREFIX') }}"></poll>
@@ -60,19 +60,19 @@
 				<div class="col-md-6">
 					<div class="panel panel-default" data-margin-top="80">
 						<div class="panel-title">
-							<h2>Results</h2>
+							<h2>النتائج</h2>
 						</div>
 						<div class="panel-body">
 							@foreach($poll->questions as $question)
 								@php $total_votes = $question->totalVotes(); @endphp
-								<h4>{{ $question->question }} <small class="label label-success">{{ $total_votes }} Total Votes</small></h4>
+								<h4>{{ $question->question }} <small class="label label-success">{{ $total_votes }} {{__('voyager.Total Votes')}}</small></h4>
 								<ul class="poll-results">
 								@foreach($question->answers as $answer)
 									@php $percentage = 0; @endphp
 									@if($total_votes != 0)
 										@php $percentage = intval(100*($answer->votes/$total_votes)); @endphp
 									@endif
-									<li>{{ $answer->answer }}<span class="poll-results-meter"><span class="label label-default label-bar" style="width:{{ $percentage }}%">{{ $percentage }}% with <b>{{ $answer->votes }}</b> votes</span></span></li>
+									<li>{{ $answer->answer }}<span class="poll-results-meter"><span class="label label-default label-bar" style="width:{{ $percentage }}%">{{ $percentage }}% مع <b>{{ $answer->votes }}</b> الاصوات</span></span></li>
 								@endforeach
 								</ul>
 							@endforeach
@@ -95,3 +95,4 @@
 		<?php include(VOYAGER_POLLS_PATH.'/app.js'); ?>
 	</script>
 @endsection
+

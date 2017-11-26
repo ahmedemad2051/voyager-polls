@@ -1,7 +1,7 @@
 <template>
 	<div id="vueify">
 		<h1 class="page-title">
-	    	<i class="voyager-bar-chart"></i> New Poll
+	    	<i class="voyager-bar-chart"></i> استطلاع جديد
 	    </h1>
 
 		<div id="polls">
@@ -11,17 +11,17 @@
 				<div class="panel panel-bordered">
 					
 					<div class="panel-heading">
-						<h3 class="panel-title">Add Your New Poll Below</h3>
+						<h3 class="panel-title">أضف استطلاع جديد</h3>
 					</div>
 
 					<div class="panel-body">
 
 						<div class="col-md-6" id="poll_name">
-							<input type="text" name="poll_name" placeholder="Give this poll a name" v-model="poll.name" class="form-control">
+							<input type="text" name="poll_name" placeholder="اسم الاستطلاع" v-model="poll.name" class="form-control">
 						</div>
 
 						<div class="col-md-6" id="poll_slug">
-							<input type="text" name="poll_slug" placeholder="Poll Slug (Unique Identifier)" v-model="poll.slug" class="form-control">
+							<input type="text" name="poll_slug" placeholder="المميز" v-model="poll.slug" class="form-control">
 						</div>
 
 
@@ -31,11 +31,11 @@
 									<poll-question v-for="(question, index) in poll.questions" :question="question" :index="index" :key="index" v-on:delete-question="deleteQuestion(index)"></poll-question>
 								</transition-group>
 							</draggable>
-							<button class="btn btn-primary btn-question" @click="createNewQuestion"><i class="voyager-question"></i> Another Question +</button>
+							<button class="btn btn-primary btn-question" @click="createNewQuestion"><i class="voyager-question"></i> أضف سؤال +</button>
 	                    </div>
 
 	                    <div class="col-md-6">
-	                    	<label for="preview">Preview:</label>
+	                    	<label for="preview">عرض:</label>
 	                    	<poll :poll="poll"></poll>
 	                    </div>
 
@@ -101,9 +101,9 @@
 
 		data: function(){
 			return {
-				newQuestionCopy : 'Create New Question',
-				newQuestionLoadingCopy: '<span class="voyager-refresh"></span> Saving New Poll',
-				updateQuestionCopy : 'Update Question',
+				newQuestionCopy : 'اضف سؤال جديد',
+				newQuestionLoadingCopy: '<span class="voyager-refresh"></span> حفظ الاستطلاع',
+				updateQuestionCopy : 'تحديث الاستطلاع',
 				saveCopy: '',
 				post_url: '',
 				poll: {

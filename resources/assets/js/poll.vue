@@ -7,19 +7,19 @@
 			<div class="panel panel-default poll-panel" data-margin-top="80">
 				<div class="panel-title">
 					<h1 v-if="poll.name">{{ poll.name }}</h1>
-					<h1 v-else="poll.name">Name of Your Poll</h1>
+					<h1 v-else="poll.name">اسم الاستطلاع</h1>
 				</div>
 				<div class="panel-body">
 					<div class="poll-questions">
 						<div class="poll-questions-inner" :style="questionsInnerStyles">
 							<div class="poll-question" :style="{ width: (100/poll.questions.length) + '%' }" v-for="(question, index) in poll.questions">
 								<h2 v-if="question.question">{{ question.question }}</h2>
-								<h2 v-else="question.question">Question {{ index+1 }}</h2>
+								<h2 v-else="question.question">سؤال {{ index+1 }}</h2>
 								
 								<div class="radio" v-for="(answer, answer_index) in question.answers">
 									<div :class="[question.answered == answer.id ? 'answer-container question-answer' : 'answer-container']">
 										<label v-if="answer"><input type="radio" :name="answer.id" @click="vote(answer,question)" :disabled="(typeof(question.answered) != 'undefined' && question.answered != '') ? true : false" :checked="question.answered == answer.id">{{ answer.answer }}</label>
-									  	<label v-else><input type="radio" name="answer">Answer {{ answer_index+1 }}</label>
+									  	<label v-else><input type="radio" name="answer">إجابة {{ answer_index+1 }}</label>
 										<div class="answer_result" v-if="question.answered">
 											<div class="poll-percentage-bar">
 												<div class="percentage-mask"></div>
@@ -36,11 +36,11 @@
 				</div>
 				<div class="panel-footer">
 					<div class="poll_num">
-						<p>Question {{ current_index }} of {{ poll.questions.length }}</p>
+						<p>سؤال {{ current_index }} من {{ poll.questions.length }}</p>
 					</div>
 					<div class="poll_buttons">
-						<div class="btn btn-default" id="previous" @click="prev" :disabled="this.current_index != 1 ? false : true">Previous</div>
-						<div class="btn btn-default" id="next" @click="next" :disabled="((this.current_index < this.poll.questions.length && this.poll.questions[this.current_index-1].answered) || isPreview) ? false : true">Next</div>
+						<div class="btn btn-default" id="previous" @click="prev" :disabled="this.current_index != 1 ? false : true">السابق</div>
+						<div class="btn btn-default" id="next" @click="next" :disabled="((this.current_index < this.poll.questions.length && this.poll.questions[this.current_index-1].answered) || isPreview) ? false : true">التالى</div>
 					</div>
 					<div style="clear:both"></div>
 				</div>

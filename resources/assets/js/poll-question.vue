@@ -2,28 +2,28 @@
 	<div id="poll-question">
 		<i class="voyager-handle move-question"></i>
 		<p class="delete-question" v-on:click="$emit('delete-question')">
-			Remove Question
+			حذف السؤال
 			<i class="voyager-trash"></i>
 		</p>
 		<div class="form-group">
-            <label for="name">Question {{ index+1 }}</label>
-            <input type="text" class="form-control" name="question" v-model="question.question" placeholder="Add a question here" value="">
+            <label for="name">سؤال {{ index+1 }}</label>
+            <input type="text" class="form-control" name="question" v-model="question.question" placeholder="اضف السؤال هنا" value="">
         </div>
 
-        <label for="answer">Answers</label>
+        <label for="answer">الإجابات</label>
         <draggable v-model="question.answers">
 		    <transition-group>
 		        <div v-for="(answer, id) in question.answers" :key="id">
 		            <div class="answer">
 		            	<i class="voyager-handle"></i>
-		            	<input type="text" name="answers[]" class="form-control" v-model="question.answers[id].answer" :placeholder="'Add answer ' + (id+1)" @keyup.enter="newAnswerEnter(id)">
+		            	<input type="text" name="answers[]" class="form-control" v-model="question.answers[id].answer" :placeholder="'إضافة اجابة ' + (id+1)" @keyup.enter="newAnswerEnter(id)">
 		            	<i class="voyager-trash" @click="deleteAnswer(id)"></i>
 		            </div>
 		        </div>
 		    </transition-group>
 		</draggable>
 
-		<button class="btn btn-default btn-new" @click="newAnswer"><i class="voyager-plus"></i> New Answer</button>
+		<button class="btn btn-default btn-new" @click="newAnswer"><i class="voyager-plus"></i> إجابة جديدة</button>
 	</div>
 </template>
 
