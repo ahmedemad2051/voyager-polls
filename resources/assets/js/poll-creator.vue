@@ -117,7 +117,11 @@
 		},
 		watch: {
 			'poll.name': function(){
-				this.poll.slug = slugify(this.poll.name).toLowerCase();
+				slugi = slugify(this.poll.name).toLowerCase();
+				if(slugi)
+				{
+                    this.poll.slug=slugi;
+				}
 			}
 		},
 		methods:{
@@ -180,3 +184,4 @@
 		},
 	};
 </script>
+
